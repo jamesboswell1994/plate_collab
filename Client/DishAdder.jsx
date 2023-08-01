@@ -10,13 +10,17 @@ import { Routes } from 'react-router-dom'
 import axios from 'axios'
 import DishForm from './DishForm.jsx'
 import DishSubmitButton from './DishSubmitButton.jsx'
+import { useState } from 'react'
+
 
 const DishAdder = () =>{
     
+    const[adderData , setAdderData] = useState({})
+
     return (
         <div className = "dishAdder">
         <h2>Add a recent dish</h2>
-        <DishForm label = "Restaurant"></DishForm>
+        <DishForm label = "Restaurant" setState = {setAdderData}></DishForm>
         <DishForm label = "Name"></DishForm>
         <DishForm label = "Grade"></DishForm>
         <DishForm label = "Notes"></DishForm>
