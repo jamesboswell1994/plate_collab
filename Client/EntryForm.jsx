@@ -12,14 +12,7 @@ const EntryForm = () => {
     // otherwise, redirect to a feed page
     // const navigate = useNavigate()
     const navigateToFeed = () => {
-        console.log("reached axios portion")
-        axios.get('/feed')
-        .then((response =>{
-            console.log(response.data)
-        }))
-        .catch((err) => {
-            console.log(err)
-        })
+        window.location.href = '/feed'
     }
     return (
         <div className = 'loginForm'>
