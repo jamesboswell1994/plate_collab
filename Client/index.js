@@ -8,12 +8,9 @@ import { render } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 
-// const root = createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 
-render(
-    <BrowserRouter>
+root.render(
       <App>
-      </App>
-    </BrowserRouter>,
-    document.getElementById('root')
-      );
+      </App>      
+    );

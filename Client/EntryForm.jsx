@@ -11,18 +11,20 @@ const EntryForm = () => {
     // if we fail auth, generate a basic like tooltippy ui to reflect this to user
     // otherwise, redirect to a feed page
     // const navigate = useNavigate()
+    const nav = useNavigate()
+
     const navigateToFeed = () => {
-        window.location.href = '/feed'
+        nav("/feed")
     }
     return (
         <div className = 'loginForm'>
             <h1>Welcome to Plate Collab</h1>
             <form>
-                <label for = "username">Username</label>
+                <label htmlFor = "username">Username</label>
                 <input type = "text" name = "username" id = "username" required></input>
             </form>
             <form>
-                <label for = "password">Password</label>
+                <label htmlFor = "password">Password</label>
                 <input type = "text" name = "password" id = "password" required></input>
             </form>
             <button onClick = {navigateToFeed}>Log in</button>

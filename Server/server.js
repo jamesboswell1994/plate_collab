@@ -14,8 +14,7 @@ app.use('/build', express.static(path.join(__dirname, '../build')));
 app.use('/client', express.static(path.join(__dirname, '../client')));
 
 app.get('/feed', (req,res) =>{
-    console.log("reached the feed get req")
-    res.status(200).sendFile(path.resolve(__dirname, '../client/feed.html'))
+    res.redirect(200,'/')
 })
 app.get('/' , (req, res) =>{
     console.log("reached the root path")

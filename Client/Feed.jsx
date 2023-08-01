@@ -1,8 +1,28 @@
 
+import React from 'react'
+// import any subcomponent classes
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { Routes } from 'react-router-dom'
+import axios from 'axios'
+import DishAdder from './DishAdder.jsx'
+import DishDisplay from './DishDisplay.jsx'
+
 const Feed = () =>{
     return (
-        <h1>My Feed</h1>
+        <div>
+            <h1>My Feed</h1>
+            <DishAdder></DishAdder>
+            <DishDisplay></DishDisplay>
+        </div>
     )
 }
 
 export default Feed
+
+
+/// Feed will need to take user input, save that data to db, then display
+// recent restaurants
+// recent entrees
+// full list
+
