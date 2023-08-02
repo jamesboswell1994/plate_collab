@@ -19,7 +19,6 @@ const DishForm = props =>{
     
     const updateStore = (e) =>{
         const inputVal = e.target.value
-        console.log(inputVal + " in the updateStore change handler")
         if (props.label === 'Restaurant'){
             console.log("reached the props check")
             Dispatch(updateRestaurant(inputVal))

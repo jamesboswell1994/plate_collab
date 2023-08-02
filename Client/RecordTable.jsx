@@ -11,11 +11,11 @@ const RecordTable = () => {
     const [response, setResponse] = useState([{}])
     const entries = []
 
-    const userId = useSelector((state) => (state.dishUpdate.userId))
-    console.log("the redux user ID is " + userId)
+    const username = useSelector((state) => (state.dishUpdate.username))
+    console.log("the redux username in the table function is " + username)
     useEffect( () =>{
         async function getRecords(){
-            const response = await axios.get('/feed/records', {params: {userId}})
+            const response = await axios.get('/feed/records', {params: {username}})
             console.log(response)
             setResponse(response.data)
         }

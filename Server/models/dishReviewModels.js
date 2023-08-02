@@ -28,7 +28,8 @@ mongoose.connect(MONGO_URI, {
     },
     notes : String,
     category : String,
-    userId : String
+    userId: String,
+    username : String
 
   }, {timestamps : true})
 

@@ -8,7 +8,7 @@ const initialState = {
   grade : '',
   category : '',
   notes : '',
-  userId : 'TEST'
+  username : 'TEST'
 }
 
 export const updateDishSlice = createSlice({
@@ -31,11 +31,14 @@ export const updateDishSlice = createSlice({
     updateNotes: (state, action) => {
       state.notes = action.payload
     },
+    updateUsername: (state, action) => {
+      state.username = action.payload
+    },
   },
 });
 
 // This is for dispatch
-export const { updateRestaurant, updateDishName, updateGrade,updateNotes, updateCategory} = updateDishSlice.actions;
+export const { updateRestaurant, updateDishName, updateGrade,updateNotes, updateCategory, updateUsername} = updateDishSlice.actions;
 
 // This is for configureStore
 export default updateDishSlice.reducer;

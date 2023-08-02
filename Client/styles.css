@@ -1,0 +1,56 @@
+
+
+.loginForm{
+    background-image: url('https://i.gifer.com/origin/89/8971273ae33de51dde07dcda67777345_w200.webp');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-color: aliceblue;
+
+    height:100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.loginFormContainer{
+    display: flex;
+    /* align-self :last baseline; */
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    right : 25%;
+    top : 30%;
+
+}
+button {
+    background: linear-gradient(135deg, #ADD8E6, #40E0D0, #00FF7F);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin:6px;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #00FF7F, #40E0D0, #ADD8E6);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  form {
+
+  background: linear-gradient(135deg, #ADD8E6, #40E0D0, #00FF7F);
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px; /* Adjust the padding as needed */
+  text-align: center;
+  margin: 10px;
+  font-size: 16px;
+}
+

@@ -3,7 +3,8 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 const fs = require('fs')
-const dishReviewController = require('./reviewsController')
+const dishReviewController = require('./controllers/reviewsController')
+const userController = require('./controllers/userController')
 const PORT = 3000
 
 const app = express()
@@ -27,6 +28,11 @@ app.post('/feed', dishReviewController.addReview ,(req,res) =>{
 app.get('/feed/records', dishReviewController.getReviews, (req,res) =>{
     console.log("reached the records fetch")
     res.status(200).send(res.locals.reviewsData).json()
+})
+
+app.post('/create', userController.addUser ,(req,res) =>{
+    console.log("post to create through")
+    res.status(200).send()
 })
 
 
