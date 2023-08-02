@@ -7,6 +7,7 @@ import { Routes } from 'react-router-dom'
 import axios from 'axios'
 import DishAdder from './DishAdder.jsx'
 import DishDisplay from './DishDisplay.jsx'
+import RecordTable from './RecordTable.jsx'
 
 const Feed = () =>{
     return (
@@ -14,6 +15,7 @@ const Feed = () =>{
             <h1>My Feed</h1>
             <DishAdder></DishAdder>
             <DishDisplay></DishDisplay>
+            <RecordTable></RecordTable>
         </div>
     )
 }
