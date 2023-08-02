@@ -2,65 +2,60 @@
 
 import * as React from 'react';
 import { Table, Header, HeaderRow, HeaderCell, Body, Row, Cell } from '@table-library/react-table-library/table';
-
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import axios from 'axios'
 const RecordTable = () => {
-  const list = [
-    {
-      id: '1',
-      name: 'VSCode',
-      deadline: new Date(2020, 1, 17),
-      type: 'SETUP',
-      isComplete: true,
-    },
-    {
-      id: '2',
-      name: 'JavaScript',
-      deadline: new Date(2020, 2, 28),
-      type: 'LEARN',
-      isComplete: true,
-    },
-    {
-      id: '3',
-      name: 'React',
-      deadline: new Date(2020, 3, 8),
-      type: 'LEARN',
-      isComplete: false,
-    }
-  ];
+    // const [filters, setFilters] = useState(['SETUP', 'LEARN']);
 
-  const data = { nodes: list };
+    const [response, setResponse] = useState([{}])
+    const entries = []
+
+    const userId = useSelector((state) => (state.dishUpdate.userId))
+    console.log("the redux user ID is " + userId)
+    useEffect( () =>{
+        async function getRecords(){
+            const response = await axios.get('/feed/records', {params: {userId}})
+            console.log(response)
+            setResponse(response.data)
+        }
+        getRecords()      
+    }, [])
+
+
+
+  const data = { nodes: response };
 
   return (
+    <div>
+    <h2> My dishes</h2>
     <Table data={data}>
       {(tableList) => (
         <>
           <Header>
             <HeaderRow>
-              <HeaderCell>Task</HeaderCell>
-              <HeaderCell>Deadline</HeaderCell>
-              <HeaderCell>Type</HeaderCell>
-              <HeaderCell>Complete</HeaderCell>
+              <HeaderCell>Restaurant</HeaderCell>
+              <HeaderCell>Dish</HeaderCell>
+              <HeaderCell>Grade</HeaderCell>
+              <HeaderCell>Category</HeaderCell>
+              <HeaderCell>Notes</HeaderCell>
             </HeaderRow>
           </Header>
           <Body>
             {tableList.map((item) => (
               <Row key={item.id} item={item}>
-                <Cell>{item.name}</Cell>
-                <Cell>
-                  {item.deadline.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                  })}
-                </Cell>
-                <Cell>{item.type}</Cell>
-                <Cell>{item.isComplete.toString()}</Cell>
+              <Cell>{item.restaurant}</Cell>
+                <Cell>{item.dishName}</Cell>
+                <Cell>{item.grade}</Cell>
+                <Cell>{item.category}</Cell>
+                <Cell>{item.notes}</Cell>
               </Row>
             ))}
           </Body>
         </>
       )}
     </Table>
+    </div>
   );
 };
 

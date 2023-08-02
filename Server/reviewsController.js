@@ -22,6 +22,7 @@ dishReviewController.getReviews = (req,res,next) => {
 
     try {
     DishModels.DishReview.find({userId : userId}).then((data) =>{
+
         res.locals.reviewsData = data
         next()
     })

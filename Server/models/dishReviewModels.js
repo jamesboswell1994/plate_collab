@@ -28,9 +28,9 @@ mongoose.connect(MONGO_URI, {
     },
     notes : String,
     category : String,
-    userId : String,
-    updatedAt : new Date()
-  })
+    userId : String
+
+  }, {timestamps : true})
 
   const DishReview = mongoose.model('dishReview' , dishReviewSchema)
 

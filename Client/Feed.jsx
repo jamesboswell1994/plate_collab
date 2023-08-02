@@ -13,9 +13,9 @@ const Feed = () =>{
     return (
         <div>
             <h1>My Feed</h1>
-            <DishAdder></DishAdder>
-            <DishDisplay></DishDisplay>
             <RecordTable></RecordTable>
+            <DishAdder></DishAdder>
+
         </div>
     )
 }
