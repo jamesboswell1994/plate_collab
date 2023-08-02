@@ -12,11 +12,14 @@ import { Routes } from 'react-router-dom'
 import axios from 'axios'
 import DishForm from './DishForm.jsx'
 
+
 const DishAdder = () =>{
-    
+    const stateObj = useSelector(state => state.dishUpdate)
+
     let theData = {}
     const clickHandler = ()=> {
-        console.log(theData)
+        console.log(stateObj)
+        axios.post('/feed', stateObj)
     }
     return (
         <button onClick = {clickHandler}>Submit</button>

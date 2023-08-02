@@ -15,7 +15,9 @@ const EntryForm = () => {
 
     const navigateToFeed = () => {
         nav("/feed")
+        // location.href = ('https://developers.google.com/identity/sign-in/web/sign-in')
     }
+
     return (
         <div className = 'loginForm'>
             <h1>Welcome to Plate Collab</h1>
@@ -27,7 +29,7 @@ const EntryForm = () => {
                 <label htmlFor = "password">Password</label>
                 <input type = "text" name = "password" id = "password" required></input>
             </form>
-            <button onClick = {navigateToFeed}>Log in</button>
+            <button onClick = {navigateToFeed}>Log in with google</button>
 
         </div>
     )

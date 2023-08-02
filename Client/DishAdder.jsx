@@ -23,7 +23,9 @@ const DishAdder = () =>{
         <DishForm label = "Restaurant" setState = {setAdderData}></DishForm>
         <DishForm label = "Name"></DishForm>
         <DishForm label = "Grade"></DishForm>
+        <DishForm label = "Category"></DishForm>
         <DishForm label = "Notes"></DishForm>
+
         <DishSubmitButton></DishSubmitButton>
         </div>
     )

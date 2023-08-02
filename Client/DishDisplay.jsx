@@ -12,22 +12,39 @@ import { Routes } from 'react-router-dom'
 import axios from 'axios'
 import DishForm from './DishForm.jsx'
 import DishSubmitButton from './DishSubmitButton.jsx'
+import Dish from './Dish.jsx'
+import {useState} from 'react'
+import { useEffect } from 'react'
 
 const DishDisplay = () =>{
     
-    return (
-        <div className = "dishAdder">
-        <h2>Your recent dishes</h2>
-        </div>
 
-    )
-    // Restaurant
-    // Dish name
-    // Grade
-    // Notes
-    // Add dish button
+    const [response, setResponse] = useState([{}])
+    const entries = []
+
+    const userId = useSelector((state) => (state.dishUpdate.userId))
+    console.log("the redux user ID is " + userId)
+    useEffect( () =>{
+        async function getRecords(){
+            const response = await axios.get('/feed/records', {params: {userId}})
+            console.log(response)
+            setResponse(response.data)
+        }
+        getRecords()      
+    }, [])
 
 
-}
+        for (let entry of response){
+            entries.push(<Dish data = {entry}></Dish>)
+        }
+        return (
+            <div className = "dishAdder">
+            <h2>Your recent dishes</h2>
+            {entries}
+            </div>
+    
+        )
+    
+    }
 
 export default DishDisplay
