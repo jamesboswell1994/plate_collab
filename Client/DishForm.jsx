@@ -24,7 +24,7 @@ const DishForm = props =>{
             Dispatch(updateRestaurant(inputVal))
         }
 
-        if (props.label === 'Name'){
+        if (props.label === 'Dish Name'){
             console.log("reached the props check")
             Dispatch(updateDishName(inputVal))
         }
@@ -45,7 +45,7 @@ const DishForm = props =>{
     }
     return (
         <div className = "DishForm">
-        <form width = '15%'>
+        <form>
             <label>{props.label}</label>
             <input name = {props.label} onChange={updateStore}/>
         </form>

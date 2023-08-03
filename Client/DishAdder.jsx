@@ -28,7 +28,7 @@ const DishAdder = props =>{
         <h2>Add a recent dish</h2>
         <div className = "dishContainer">
         <DishForm label = "Restaurant" setState = {setAdderData}></DishForm>
-        <DishForm label = "Dish name"></DishForm>
+        <DishForm label = "Dish Name"></DishForm>
         <label for="grade">Grade</label>
         <select name="grade" id="grade" onChange = {dropdownChangeHandler}>
             <option value="A+">A+</option>

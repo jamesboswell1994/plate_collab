@@ -43,7 +43,20 @@ mongoose.connect(MONGO_URI, {
 
   const Restaurant = mongoose.model('restaurant' , RestaurantSchema)
 
+  const WishlistSchema = new Schema({
+    restaurant : String,
+    dishname : String,
+    howbad: {
+      type: String,
+      enum: ['Meh', 'Pretty interested', 'Gotta have it']
+  },
+    username : String
+  })
+
+  const Wishlist = mongoose.model('wishlist' , WishlistSchema)
+
   module.exports = {
     DishReview,
-    Restaurant
+    Restaurant,
+    Wishlist
   }

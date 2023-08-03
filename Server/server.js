@@ -36,12 +36,27 @@ app.post('/feed', dishReviewController.addReview ,(req,res) =>{
     res.status(200).send()
 })
 
+app.post('/wishlist', dishReviewController.addToWishlist ,(req,res) =>{
+    console.log("wishlist got through")
+    res.status(200).send()
+})
+
 app.get('/feed/records', dishReviewController.getReviews, (req,res) =>{
     console.log("reached the records fetch")
     res.status(200).send(res.locals.reviewsData).json()
 })
 
+app.get('/wishlist', dishReviewController.getWishlist, (req,res) =>{
+    console.log("reached the records fetch")
+    res.status(200).send(res.locals.reviewsData).json()
+})
+
 app.delete('/feed/records', dishReviewController.deleteReview, (req,res) =>{
+    console.log("delete successful")
+    res.status(200).send("deletion successful")
+})
+
+app.delete('/wishlist', dishReviewController.deleteWishlist, (req,res) =>{
     console.log("delete successful")
     res.status(200).send("deletion successful")
 })
