@@ -11,24 +11,37 @@ import RecordTable from './RecordTable.jsx'
 import { UseSelector } from 'react-redux/es/hooks/useSelector.js'
 import store from './redux/store.js'
 import { useState } from 'react'
+import FriendLookup from './FriendLookup.jsx'
 const Feed = () =>{
     const [refresher, setRefresher] = useState(0)
 
 
-    let header = (refresher + " is the refresher val")
-
-    console.log("TEST")
-    console.log(refresher + " is the refresher val")
 
     const username = useSelector((state) => (state.dishUpdate.username))
-    console.log(username)
-    // if (username === 'Katherine') header = 'Hey beautiful, welcome to dishlist'
+
+    let header = ("Hey " + username + ", welcome to Dishlist!")
+
+    if (username === 'Katherine') header = 'Hey beautiful, welcome to Dishlist'
     return (
         <div>
-            <h1>{header}</h1>
-            <RecordTable ></RecordTable>
+        <div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+    <div className = "primaryFeedContainer">
+        <img src="https://i.ibb.co/1MyQpL1/Screenshot-2023-08-03-at-1-16-21-PM.png" alt="Screenshot-2023-08-03-at-1-16-21-PM" border="0" width="300px" height = "300px" margin = "10px"></img>
+        <h1 className='feedHeader'>{header}</h1>
+    <div className = "columnContainer">
+        <div className = "userFeedContainer">
+
+            <RecordTable username = {username} ></RecordTable>
             <DishAdder refreshVal = {refresher} refreshFunction = {setRefresher}></DishAdder>
         </div>
+        <div className = "friendInfoContainer">
+        <FriendLookup></FriendLookup>
+        </div>
+    </div>
+    </div>
+    </div>
     )
 }
 

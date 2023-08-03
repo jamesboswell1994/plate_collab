@@ -22,7 +22,7 @@ const RecordTable = props=> {
     //   forceRefresh,
     // }));
 
-    const username = useSelector((state) => (state.dishUpdate.username))
+    const username = props.username
     console.log("the redux username in the table function is " + username)
     useEffect( () =>{
         async function getRecords(){
@@ -38,12 +38,13 @@ const RecordTable = props=> {
     // }
 
 
+
   const data = { nodes: response };
 
   return (
     <div>
     <h2> My dishes</h2>
-    <Table data={data}>
+    <Table className = "custom-table" data={data}>
       {(tableList) => (
         <>
           <Header>
@@ -64,7 +65,7 @@ const RecordTable = props=> {
                 <Cell>{item.dishName}</Cell>
                 <Cell>{item.grade}</Cell>
                 <Cell>{item.category}</Cell>
-                <Cell>{item.notes}</Cell>
+                <Cell className = "text">{item.notes}</Cell>
                 <button onClick= {()=> {
                   const deleteKeys = {restaurant: item.restaurant , dishName : item.dishName, notes : item.notes}
                   axios.delete('/feed/records', {data: deleteKeys}).then(() => updateRefresher(refresher+1))

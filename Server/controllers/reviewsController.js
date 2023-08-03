@@ -13,7 +13,7 @@ dishReviewController.addReview = (req,res,next) => {
         // res.status(302)
         DishModels.DishReview.create({dishName , restaurant, grade, notes, category, username}).then(() => {next()}).catch((err) => {console.log("error")})
       }
-      else console.log("the if statement in the addReview in reviewsController failed")
+      else console.log("the if statement in the addReview in reviewsController failed" + restaurant + grade+dishName+category+notes+username)
       next()
 }
 

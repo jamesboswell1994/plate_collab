@@ -45,13 +45,9 @@ const DishForm = props =>{
     }
     return (
         <div className = "DishForm">
-        <form>
-        <fieldset>
-            <label>
-                <p>{props.label}</p>
-                <input name = {props.label} onChange={updateStore}/>
-            </label>
-        </fieldset>
+        <form width = '15%'>
+            <label>{props.label}</label>
+            <input name = {props.label} onChange={updateStore}/>
         </form>
         </div>
     )

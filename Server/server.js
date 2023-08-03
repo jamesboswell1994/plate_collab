@@ -51,6 +51,11 @@ app.post('/create', userController.addUser ,(req,res) =>{
     res.status(200).send()
 })
 
+app.get('/users', userController.getUsers , (req,res)=>{
+    console.log("These are the users about to get sent up: " + res.locals.users)
+    res.status(200).send(res.locals.users)
+})
+
 
 app.get('/' , (req, res) =>{
     res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'))

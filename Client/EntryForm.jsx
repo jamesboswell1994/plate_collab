@@ -54,13 +54,13 @@ const EntryForm = () => {
     return (
         <div className = 'loginForm'>
             <div className = 'loginFormContainer'>
-            <h1>Welcome to </h1>
+            <img src="https://i.ibb.co/1MyQpL1/Screenshot-2023-08-03-at-1-16-21-PM.png" alt="Screenshot-2023-08-03-at-1-16-21-PM" border="0" width="300px" height = "300px" margin = "10px"></img>            
             <form>
-                <label htmlFor = "username">Username</label>
+                <label htmlFor = "username">Username:</label>
                 <input type = "text" name = "username" id = "username" required onChange = {changeHandler}></input>
             </form>
             <form>
-                <label htmlFor = "password">Password</label>
+                <label htmlFor = "password">Password:</label>
                 <input type = "password" name = "password" id = "password" required onChange = {pwChangeHandler}></input>
             </form>
             <button onClick = {navigateToFeed}>Log in</button>

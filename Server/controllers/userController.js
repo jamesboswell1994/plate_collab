@@ -8,7 +8,6 @@ const { EvalSourceMapDevToolPlugin } = require('webpack');
 const User = require('../models/userModel.js');
 
 userController.addUser = (req,res,next) => {
-    console.log("reached the add review controller")
     const {username, password} = req.body
     if(username !=  '' && password != '') {
         // res.status(302)
@@ -25,7 +24,6 @@ userController.validateUser = (req, res, next) => {
         // res.status(302)
         User.find({username, password}).then((data) => {
             if (data != false){
-                console.log("data in the username verifier " + data)
                 res.locals.validated = true
             }
             else {
@@ -35,6 +33,13 @@ userController.validateUser = (req, res, next) => {
         }).catch((err) => next(err))
       }
       else next("Missing PW or username")
+}
 
+userController.getUsers = (req, res, next)=> {
+    User.find().then((data) => {
+        console.log("The data is " + data)
+        res.locals.users = data
+        next()
+    }).catch((err) => {console.log(err)})
 }
 module.exports = userController

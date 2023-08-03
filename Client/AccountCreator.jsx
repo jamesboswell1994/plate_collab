@@ -45,25 +45,19 @@ const AccountCreator = ()=>{
     }
 
     return (
-    <div>
-        <h1>Account page</h1>
-        <div className = "DishForm">
+    <div className = "accountContainer">
+        <div className = "createAccountForm">
+        <h1>Create an account</h1>
         <form>
-        <fieldset>
-            <label>
-                <p>Create username</p>
+        <label htmlFor = "username">Create Username</label>
                 <input name = "username" onChange={storeUsername}/>
-            </label>
-        </fieldset>
-        <fieldset>
-        <label>
-            <p>Create Password</p>
+                </form>        
+        <form>
+        <label htmlFor = "password">Create Password</label>
             <input name = "password" type = "password" onChange={storePassword}/>
-        </label>
-    </fieldset>
         </form>
-        </div>    
         <button onClick={clickHandler}>Go to my feed</button>
+        </div>    
     </div>
 
     )

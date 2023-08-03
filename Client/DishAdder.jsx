@@ -26,10 +26,11 @@ const DishAdder = props =>{
     return (
         <div className = "dishAdder">
         <h2>Add a recent dish</h2>
+        <div className = "dishContainer">
         <DishForm label = "Restaurant" setState = {setAdderData}></DishForm>
-        <DishForm label = "Name"></DishForm>
-        <label for="cars">Grade</label>
-        <select name="cars" id="cars" onChange = {dropdownChangeHandler}>
+        <DishForm label = "Dish name"></DishForm>
+        <label for="grade">Grade</label>
+        <select name="grade" id="grade" onChange = {dropdownChangeHandler}>
             <option value="A+">A+</option>
             <option value="A">A</option>
             <option value="A-">A-</option>
@@ -45,7 +46,7 @@ const DishAdder = props =>{
         </select>
         <DishForm label = "Category"></DishForm>
         <DishForm label = "Notes"></DishForm>
-
+        </div>
         <DishSubmitButton refreshVal = {props.refreshVal} refreshFunction = {props.refreshFunction}></DishSubmitButton>
         </div>
     )

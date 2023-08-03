@@ -15,11 +15,11 @@ import DishForm from './DishForm.jsx'
 
 const DishSubmitButton = props =>{
     const stateObj = useSelector(state => state.dishUpdate)
-
+    const nav = useNavigate()
     let theData = {}
     const clickHandler = ()=> {
         console.log(stateObj)
-        axios.post('/feed', stateObj).then(() =>{window.location.reload()})
+        axios.post('/feed', stateObj).then(() =>{nav('/')})
     }
     return (
         <button onClick = {() =>{
