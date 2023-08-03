@@ -8,14 +8,18 @@ import axios from 'axios'
 import DishAdder from './DishAdder.jsx'
 import DishDisplay from './DishDisplay.jsx'
 import RecordTable from './RecordTable.jsx'
-
+import { UseSelector } from 'react-redux/es/hooks/useSelector.js'
+import store from './redux/store.js'
 const Feed = () =>{
+    let header = 'My Dishlist'
+    const username = useSelector((state) => (state.dishUpdate.username))
+    console.log(username)
+    if (username === 'Katherine') header = 'Hey beautiful, welcome to dishlist'
     return (
         <div>
-            <h1>My Feed</h1>
+            <h1>{header}</h1>
             <RecordTable></RecordTable>
             <DishAdder></DishAdder>
-
         </div>
     )
 }

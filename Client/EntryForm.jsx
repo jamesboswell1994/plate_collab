@@ -35,7 +35,7 @@ const EntryForm = () => {
     return (
         <div className = 'loginForm'>
             <div className = 'loginFormContainer'>
-            <h1>Welcome to Plate Collab</h1>
+            <h1>Welcome to Dishlist</h1>
             <form>
                 <label htmlFor = "username">Username</label>
                 <input type = "text" name = "username" id = "username" required onChange = {changeHandler}></input>
