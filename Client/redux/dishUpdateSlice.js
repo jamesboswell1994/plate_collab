@@ -5,10 +5,13 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   restaurant : '',
   dishName : '',
-  grade : '',
+  grade : 'A+',
   category : '',
   notes : '',
-  username : 'TEST'
+  username : 'TEST',
+  wishRestaurant: '',
+  wishDishName : '',
+  howbad: 'Meh'
 }
 
 export const updateDishSlice = createSlice({
@@ -34,11 +37,20 @@ export const updateDishSlice = createSlice({
     updateUsername: (state, action) => {
       state.username = action.payload
     },
+    updateWishRestaurant: (state, action) => {
+      state.wishRestaurant = action.payload
+    },    
+    updateWishDishName: (state, action) => {
+      state.wishDishName = action.payload
+    },    
+    updateHowBad: (state, action) => {
+      state.howbad = action.payload
+    },
   },
 });
 
 // This is for dispatch
-export const { updateRestaurant, updateDishName, updateGrade,updateNotes, updateCategory, updateUsername} = updateDishSlice.actions;
+export const { updateRestaurant, updateDishName, updateGrade,updateNotes, updateCategory, updateUsername, updateWishRestaurant, updateWishDishName, updateHowBad} = updateDishSlice.actions;
 
 // This is for configureStore
 export default updateDishSlice.reducer;

@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { Routes } from 'react-router-dom'
 import axios from 'axios'
 import { updateUsername } from './redux/dishUpdateSlice.js'
+import CookieChecker from './CookieChecker.jsx';
 
 const EntryForm = () => {
     const cookies = new Cookies()
@@ -53,6 +54,7 @@ const EntryForm = () => {
 
     return (
         <div className = 'loginForm'>
+        <CookieChecker></CookieChecker>
             <div className = 'loginFormContainer'>
             <img src="https://i.ibb.co/1MyQpL1/Screenshot-2023-08-03-at-1-16-21-PM.png" alt="Screenshot-2023-08-03-at-1-16-21-PM" border="0" width="300px" height = "300px" margin = "10px"></img>            
             <form>

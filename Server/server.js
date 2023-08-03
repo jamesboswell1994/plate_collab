@@ -47,8 +47,8 @@ app.get('/feed/records', dishReviewController.getReviews, (req,res) =>{
 })
 
 app.get('/wishlist', dishReviewController.getWishlist, (req,res) =>{
-    console.log("reached the records fetch")
-    res.status(200).send(res.locals.reviewsData).json()
+    console.log("reached the wishlist fetch")
+    res.status(200).send(res.locals.wishlistData).json()
 })
 
 app.delete('/feed/records', dishReviewController.deleteReview, (req,res) =>{

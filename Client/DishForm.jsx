@@ -11,7 +11,7 @@ import { Routes } from 'react-router-dom'
 import axios from 'axios'
 import store from './redux/store'
 import { useSelector, useDispatch } from 'react-redux'
-import {updateRestaurant, updateDishName, updateGrade,updateNotes, updateCategory} from './redux/dishUpdateSlice'
+import {updateRestaurant, updateDishName, updateGrade,updateNotes, updateCategory, updateWishDishName, updateWishRestaurant} from './redux/dishUpdateSlice'
 
 
 const DishForm = props =>{
@@ -38,7 +38,14 @@ const DishForm = props =>{
             console.log("reached the props check")
             Dispatch(updateNotes(inputVal))
         }
-        if (props.label === 'Category'){
+        if (props.label === 'Wishlist Dish Name'){
+            console.log("reached the props check")
+            Dispatch(updateWishDishName(inputVal))
+        }
+        if (props.label === 'Wishlist Restaurant'){
+            console.log("reached the props check")
+            Dispatch(updateWishRestaurant(inputVal))
+        }        if (props.label === 'Category'){
             console.log("reached the props check")
             Dispatch(updateCategory(inputVal))
         }
@@ -56,8 +63,6 @@ const DishForm = props =>{
     // Grade
     // Notes
     // Add dish button
-
-
 }
 
 export default DishForm

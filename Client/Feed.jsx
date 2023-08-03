@@ -12,6 +12,8 @@ import { UseSelector } from 'react-redux/es/hooks/useSelector.js'
 import store from './redux/store.js'
 import { useState } from 'react'
 import FriendLookup from './FriendLookup.jsx'
+import WishlistRecordTable from './WishlistRecordTable.jsx'
+import WishAdder from './WishAdder.jsx'
 const Feed = () =>{
     const [refresher, setRefresher] = useState(0)
 
@@ -36,8 +38,9 @@ const Feed = () =>{
             <RecordTable username = {username} ></RecordTable>
             <DishAdder refreshVal = {refresher} refreshFunction = {setRefresher}></DishAdder>
         </div>
-        <div className = "friendInfoContainer">
-        <FriendLookup></FriendLookup>
+        <div className = "wishlist">
+        <WishlistRecordTable username = {username}></WishlistRecordTable>
+        <WishAdder></WishAdder>
         </div>
     </div>
     </div>

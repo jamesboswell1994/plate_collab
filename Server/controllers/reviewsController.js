@@ -19,12 +19,15 @@ dishReviewController.addReview = (req,res,next) => {
 
 dishReviewController.addToWishlist = (req,res,next) => {
     console.log("reached the add to wishlist control")
-    const {restaurant, dishName, howbad, username} = req.body
-    if(restaurant !='' && dishName != '' && howbad != '' && username != '' ) {
+    console.log(req.body + " search here")
+    const {wishRestaurant, wishDishName, howbad, username} = req.body
+    const restaurant = wishRestaurant
+    const dishname = wishDishName
+    if(restaurant !='' && dishname != '' && howbad != '' && username != '' ) {
         // res.status(302)
-        DishModels.Wishlist.create({restaurant , dishName, howbad, username}).then(() => {next()}).catch((err) => {console.log("error")})
+        DishModels.Wishlist.create({restaurant , dishname, howbad, username}).then(() => {next()}).catch((err) => {console.log("error")})
       }
-      else console.log("the if statement in the add wishlist in reviewsController failed" + restaurant +dishName+howbad+username)
+      else console.log("the if statement in the add wishlist in reviewsController failed" + restaurant +dishname+howbad+username)
       next()
 }
 
@@ -37,7 +40,6 @@ dishReviewController.getReviews = (req,res,next) => {
     DishModels.DishReview.find({username : username}).then((data) =>{
 
         res.locals.reviewsData = data
-        console.log(res.locals.reviewsData)
         next()
     })
     }
@@ -50,7 +52,7 @@ dishReviewController.getReviews = (req,res,next) => {
 dishReviewController.getWishlist = (req,res,next) => {
 
     const username = req.query.username
-    console.log(username + " is the username in the server get reviews thing")
+    console.log(username + " is the username in the wishlist get reviews thing")
 
     try {
     DishModels.Wishlist.find({username : username}).then((data) =>{
