@@ -1,5 +1,7 @@
 
 import React from 'react'
+import Cookies from 'universal-cookie';
+
 // import any subcomponent classes
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -9,11 +11,17 @@ import axios from 'axios'
 import { updateUsername } from './redux/dishUpdateSlice.js'
 
 const EntryForm = () => {
-
+    const cookies = new Cookies()
     const [username, changeUsername] = useState('')
+    const [password, changePassword] = useState('')
 
     const changeHandler = (e) => {
         changeUsername(e.target.value)
+        // console.log(username)
+    }
+
+    const pwChangeHandler = (e) => {
+        changePassword(e.target.value)
         // console.log(username)
     }
     // this component should render a username form, password form, and login button
@@ -24,7 +32,18 @@ const EntryForm = () => {
     const Dispatch = useDispatch()
     const navigateToFeed = () => {
         Dispatch(updateUsername(username))
-        nav("/feed")
+        axios.post('/login' , {username, password}).then((res) =>{
+            try{
+            if (res.status === 200) {
+                cookies.set('username' , username)
+                nav('/feed')
+            }
+        }
+        catch{
+                alert('Bad user / pw combo')
+        }
+        })
+
         // location.href = ('https://developers.google.com/identity/sign-in/web/sign-in')
     }
     const navigateToAccountCreation = () => {
@@ -42,7 +61,7 @@ const EntryForm = () => {
             </form>
             <form>
                 <label htmlFor = "password">Password</label>
-                <input type = "password" name = "password" id = "password" required></input>
+                <input type = "password" name = "password" id = "password" required onChange = {pwChangeHandler}></input>
             </form>
             <button onClick = {navigateToFeed}>Log in</button>
             <button onClick = {navigateToAccountCreation}>Create a new account</button>

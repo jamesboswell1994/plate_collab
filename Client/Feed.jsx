@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, {useEffect, useRef, useImperativeHandle} from 'react'
 // import any subcomponent classes
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -12,18 +12,21 @@ import { UseSelector } from 'react-redux/es/hooks/useSelector.js'
 import store from './redux/store.js'
 import { useState } from 'react'
 const Feed = () =>{
-    let header = 'My Dishlist'
     const [refresher, setRefresher] = useState(0)
 
+
+    let header = (refresher + " is the refresher val")
+
+    console.log("TEST")
     console.log(refresher + " is the refresher val")
 
     const username = useSelector((state) => (state.dishUpdate.username))
     console.log(username)
-    if (username === 'Katherine') header = 'Hey beautiful, welcome to dishlist'
+    // if (username === 'Katherine') header = 'Hey beautiful, welcome to dishlist'
     return (
         <div>
             <h1>{header}</h1>
-            <RecordTable></RecordTable>
+            <RecordTable ></RecordTable>
             <DishAdder refreshVal = {refresher} refreshFunction = {setRefresher}></DishAdder>
         </div>
     )

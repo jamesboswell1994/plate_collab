@@ -16,6 +16,17 @@ app.use(express.urlencoded())
 app.use('/build', express.static(path.join(__dirname, '../build')));
 app.use('/client', express.static(path.join(__dirname, '../client')));
 
+app.post('/login', userController.validateUser ,(req,res) =>{
+    if (res.locals.validated === true){
+        res.cookie('verified', true)
+        res.status(200).send("verified user")
+    }
+    else if (res.locals.validated === false){
+        res.status(500).send("bad pw user combo")
+    }
+    else res.status(500).send("something weird happened")
+
+})
 app.get('/feed', (req,res) =>{
     res.redirect(200,'/')
 })

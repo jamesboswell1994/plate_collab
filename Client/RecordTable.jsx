@@ -2,15 +2,25 @@
 
 import * as React from 'react';
 import { Table, Header, HeaderRow, HeaderCell, Body, Row, Cell } from '@table-library/react-table-library/table';
-import { useState, useEffect } from 'react';
+import { useState, useEffect , useImperativeHandle , forwardRef, useRef} from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import axios from 'axios'
-const RecordTable = props => {
+const RecordTable = props=> {
     // const [filters, setFilters] = useState(['SETUP', 'LEARN']);
 
     const [response, setResponse] = useState([{}])
     const [refresher, updateRefresher] = useState(0)
     const entries = []
+
+    // const forceRefresh = () => {
+
+    //   forceUpdate(); // Replace this with the actual re-rendering logic
+    // };
+  
+    // // Expose the method through the parent component's ref
+    //  useImperativeHandle(ref, () => ({
+    //   forceRefresh,
+    // }));
 
     const username = useSelector((state) => (state.dishUpdate.username))
     console.log("the redux username in the table function is " + username)
@@ -70,5 +80,5 @@ const RecordTable = props => {
     </div>
   );
 };
-
+      
 export default RecordTable;

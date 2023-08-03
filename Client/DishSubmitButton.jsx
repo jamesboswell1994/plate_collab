@@ -13,16 +13,18 @@ import axios from 'axios'
 import DishForm from './DishForm.jsx'
 
 
-const DishAdder = props =>{
+const DishSubmitButton = props =>{
     const stateObj = useSelector(state => state.dishUpdate)
 
     let theData = {}
     const clickHandler = ()=> {
         console.log(stateObj)
-        axios.post('/feed', stateObj).then(() =>{props.refreshFunction(props.refreshVal)})
+        axios.post('/feed', stateObj).then(() =>{window.location.reload()})
     }
     return (
-        <button onClick = {clickHandler}>Submit</button>
+        <button onClick = {() =>{
+            clickHandler()}
+        }>Submit</button>
     )
     // Restaurant
     // Dish name
@@ -33,4 +35,4 @@ const DishAdder = props =>{
 
 }
 
-export default DishAdder
+export default DishSubmitButton

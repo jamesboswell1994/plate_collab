@@ -42,9 +42,7 @@ const DishDisplay = () =>{
             <h2>Your recent dishes</h2>
             {entries}
             </div>
-    
         )
-    
     }
 
 export default DishDisplay
