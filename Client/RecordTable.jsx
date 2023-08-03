@@ -5,10 +5,11 @@ import { Table, Header, HeaderRow, HeaderCell, Body, Row, Cell } from '@table-li
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import axios from 'axios'
-const RecordTable = () => {
+const RecordTable = props => {
     // const [filters, setFilters] = useState(['SETUP', 'LEARN']);
 
     const [response, setResponse] = useState([{}])
+    const [refresher, updateRefresher] = useState(0)
     const entries = []
 
     const username = useSelector((state) => (state.dishUpdate.username))
@@ -19,9 +20,12 @@ const RecordTable = () => {
             console.log(response)
             setResponse(response.data)
         }
-        getRecords()      
-    }, [])
-
+        getRecords()   
+    }, [refresher])
+    // async function handleDelete (restaurant, dishName, notes){
+    //   const deleteKeys = {restaurant: restaurant , dishName : dishName, notes : notes}
+    //   await axios.delete('/feed/records', deleteKeys)
+    // }
 
 
   const data = { nodes: response };
@@ -39,6 +43,8 @@ const RecordTable = () => {
               <HeaderCell>Grade</HeaderCell>
               <HeaderCell>Category</HeaderCell>
               <HeaderCell>Notes</HeaderCell>
+              <HeaderCell></HeaderCell>
+
             </HeaderRow>
           </Header>
           <Body>
@@ -49,6 +55,12 @@ const RecordTable = () => {
                 <Cell>{item.grade}</Cell>
                 <Cell>{item.category}</Cell>
                 <Cell>{item.notes}</Cell>
+                <button onClick= {()=> {
+                  const deleteKeys = {restaurant: item.restaurant , dishName : item.dishName, notes : item.notes}
+                  axios.delete('/feed/records', {data: deleteKeys}).then(() => updateRefresher(refresher+1))
+                }}
+                
+                >Delete entry</button>
               </Row>
             ))}
           </Body>

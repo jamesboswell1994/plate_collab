@@ -58,7 +58,7 @@ const AccountCreator = ()=>{
         <fieldset>
         <label>
             <p>Create Password</p>
-            <input name = "password" onChange={storePassword}/>
+            <input name = "password" type = "password" onChange={storePassword}/>
         </label>
     </fieldset>
         </form>

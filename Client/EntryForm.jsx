@@ -23,7 +23,7 @@ const EntryForm = () => {
     const nav = useNavigate()
     const Dispatch = useDispatch()
     const navigateToFeed = () => {
-        Dispatch(updateUsername(username)   )
+        Dispatch(updateUsername(username))
         nav("/feed")
         // location.href = ('https://developers.google.com/identity/sign-in/web/sign-in')
     }
@@ -35,14 +35,14 @@ const EntryForm = () => {
     return (
         <div className = 'loginForm'>
             <div className = 'loginFormContainer'>
-            <h1>Welcome to Dishlist</h1>
+            <h1>Welcome to </h1>
             <form>
                 <label htmlFor = "username">Username</label>
                 <input type = "text" name = "username" id = "username" required onChange = {changeHandler}></input>
             </form>
             <form>
                 <label htmlFor = "password">Password</label>
-                <input type = "text" name = "password" id = "password" required></input>
+                <input type = "password" name = "password" id = "password" required></input>
             </form>
             <button onClick = {navigateToFeed}>Log in</button>
             <button onClick = {navigateToAccountCreation}>Create a new account</button>

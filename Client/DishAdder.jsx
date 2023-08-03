@@ -14,7 +14,7 @@ import { useState } from 'react'
 import { updateGrade } from './redux/dishUpdateSlice.js'
 
 
-const DishAdder = () =>{
+const DishAdder = props =>{
     
     const Dispatch = useDispatch()
     const[adderData , setAdderData] = useState({})
@@ -46,7 +46,7 @@ const DishAdder = () =>{
         <DishForm label = "Category"></DishForm>
         <DishForm label = "Notes"></DishForm>
 
-        <DishSubmitButton></DishSubmitButton>
+        <DishSubmitButton refreshVal = {props.refreshVal} refreshFunction = {props.refreshFunction}></DishSubmitButton>
         </div>
     )
     // Restaurant

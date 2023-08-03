@@ -35,4 +35,22 @@ dishReviewController.getReviews = (req,res,next) => {
         next(err)
     }
 }
+
+dishReviewController.deleteReview = (req, res, next) => {
+    const {restaurant, dishName, notes} = req.body
+    console.log(restaurant, ' ', dishName, ' ', notes)
+    try{
+        console.log("reached the delete")
+
+        DishModels.DishReview.deleteOne({restaurant: restaurant, dishName : dishName , notes : notes}).then((data) =>{
+            console.log(data[0] + "is the data we think we deleted")
+            next()
+        })
+        
+    }
+    catch (err){
+        console.log("error in the delete")
+        next(err)
+    }
+}
 module.exports = dishReviewController

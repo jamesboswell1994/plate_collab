@@ -30,6 +30,11 @@ app.get('/feed/records', dishReviewController.getReviews, (req,res) =>{
     res.status(200).send(res.locals.reviewsData).json()
 })
 
+app.delete('/feed/records', dishReviewController.deleteReview, (req,res) =>{
+    console.log("delete successful")
+    res.status(200).send("deletion successful")
+})
+
 app.post('/create', userController.addUser ,(req,res) =>{
     console.log("post to create through")
     res.status(200).send()

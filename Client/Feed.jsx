@@ -10,8 +10,13 @@ import DishDisplay from './DishDisplay.jsx'
 import RecordTable from './RecordTable.jsx'
 import { UseSelector } from 'react-redux/es/hooks/useSelector.js'
 import store from './redux/store.js'
+import { useState } from 'react'
 const Feed = () =>{
     let header = 'My Dishlist'
+    const [refresher, setRefresher] = useState(0)
+
+    console.log(refresher + " is the refresher val")
+
     const username = useSelector((state) => (state.dishUpdate.username))
     console.log(username)
     if (username === 'Katherine') header = 'Hey beautiful, welcome to dishlist'
@@ -19,7 +24,7 @@ const Feed = () =>{
         <div>
             <h1>{header}</h1>
             <RecordTable></RecordTable>
-            <DishAdder></DishAdder>
+            <DishAdder refreshVal = {refresher} refreshFunction = {setRefresher}></DishAdder>
         </div>
     )
 }
